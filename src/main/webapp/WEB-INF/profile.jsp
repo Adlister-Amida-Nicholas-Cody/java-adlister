@@ -7,6 +7,13 @@
     </jsp:include>
 </head>
 <body>
+<<<<<<< HEAD
+    <jsp:include page="/WEB-INF/partials/navbarProf.jsp" />
+
+    <div class="container">
+        <h1>Welcome, ${sessionScope.user.username}!</h1>
+    </div>
+=======
 <jsp:include page="/WEB-INF/partials/navbarLoggedIn.jsp"/>
 
 <div class="container">
@@ -28,7 +35,7 @@
 
                         <label for="edit"></label>
                         <input id="edit" class="invisible" type="text" name="title" value="${ad.title}">
-                            <button class="btn btn-primary" type="submit" >Edit Ad</button>
+                            <button class="btn btn-primary" type="submit" >Update Ad</button>
                         </form>
                     </div>
 
@@ -49,5 +56,6 @@
 
     </c:forEach>
 </div>
+>>>>>>> refs/remotes/origin/master
 </body>
 </html>

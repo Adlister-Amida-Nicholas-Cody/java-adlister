@@ -1,6 +1,5 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
@@ -73,19 +72,21 @@ public class MySQLAdsDao implements Ads {
                     " title = ?, " +
                     " description = ? " +
 
-                    "WHERE title = " + ad.getTitle()+"";
+                    "WHERE title = ?";
 
 
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, title);
             stmt.setString(2, description);
+            stmt.setString(3    , ad.getTitle());
+
             stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
+
 
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
+            throw new RuntimeException("Error updating Ad", e);
 
         }
 
@@ -205,4 +206,5 @@ String sql = "SELECT * FROM ads WHERE title LIKE ?";
         }
         return ads;
     }
+
 }
